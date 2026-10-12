@@ -1,0 +1,31 @@
+{
+  "name": "skycast-weather-app",
+  "version": "1.0.0",
+  "description": "A clean and functional weather application that provides current weather details based on city input.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohammad-Kolivand/Weather-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohammad-Kolivand/Weather-App/issues"
+  },
+  "homepage": "https://github.com/Mohammad-Kolivand/Weather-App#readme",
+  "private": "true",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "lucide": "^1.55.0"
+  }
+}
