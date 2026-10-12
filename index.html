@@ -1,29 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10182f" />
+    <meta name="description" content="Check current weather and a seven-day forecast for cities around the world." />
+    <title>Skycast — Weather Forecast</title>
+    <link rel="preconnect" href="https://api.open-meteo.com" />
+    <link rel="preconnect" href="https://geocoding-api.open-meteo.com" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Weather-app</title>
   </head>
   <body>
-    <div id="search">
-      <img src="/img/location.png" id="location" alt="location icon" />
-      <input type="text" placeholder="Enter City Name..." />
-      <button>Search</button>
-    </div>
-    <div id="weather"><span id="loader"></span></div>
-    <div id="forecast"></div>
-    <div id="modal">
-      <div>
-        <div>
-          <span id="modal-btn">X</span>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Skycast home"><span class="brand-mark" aria-hidden="true">☀</span> skycast</a>
+        <p class="topbar-note">Weather, at a glance</p>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR DAILY WEATHER COMPANION</p>
+          <h1 id="page-title">A little closer to the sky.</h1>
+          <p class="hero-description">Find the forecast for wherever life takes you.</p>
         </div>
-        <div>
-          <p></p>
+
+        <form id="search-form" class="search-panel" role="search">
+          <label class="sr-only" for="city-search">Search for a city</label>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="city-search" type="search" placeholder="Search city (e.g. Baku)" autocomplete="off" />
+          <button id="search-button" type="submit">Search</button>
+          <button id="location" class="location-button" type="button" aria-label="Use my current location" title="Use my current location">◎</button>
+        </form>
+      </section>
+
+      <section class="weather-section" aria-label="Current weather">
+        <div id="weather" aria-live="polite">
+          <div class="loading-state"><span class="loader" aria-hidden="true"></span><p>Getting weather data…</p></div>
         </div>
+      </section>
+
+      <section class="forecast-section" aria-labelledby="forecast-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">PLAN AHEAD</p><h2 id="forecast-title">7-day forecast</h2></div>
+          <span class="section-note">Next days</span>
+        </div>
+        <div id="forecast" aria-live="polite"></div>
+      </section>
+
+      <footer class="footer"><span>Made for curious skies</span><span>Weather data by Open-Meteo</span></footer>
+    </main>
+
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-message">
+      <div class="modal-card">
+        <button id="modal-btn" class="modal-close" type="button" aria-label="Close message">×</button>
+        <p class="eyebrow" id="modal-title">A quick note</p>
+        <p id="modal-message"></p>
+        <button class="modal-action" type="button" onclick="document.getElementById('modal').style.display='none'">Got it</button>
       </div>
     </div>
+
     <script type="module" src="./app.js"></script>
   </body>
 </html>
