@@ -8,7 +8,6 @@ const searchButton = document.querySelector("#search-button");
 const weatherContainer = document.getElementById("weather");
 const forecastContainer = document.getElementById("forecast");
 const locationButton = document.getElementById("location");
-const modalButton = document.getElementById("modal-btn");
 
 const setLoading = (isLoading) => {
   searchButton.disabled = isLoading;
@@ -114,7 +113,6 @@ const locationHandler = () => {
 
 searchForm.addEventListener("submit", searchHandler);
 locationButton.addEventListener("click", locationHandler);
-modalButton.addEventListener("click", removeModal);
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") removeModal();
 });
